@@ -21,9 +21,10 @@
 	<preference name="AndroidPersistentFileLocation" value="Internal" />
 	<preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
 	<preference name="AndroidLaunchMode" value="singleTask" />
-	-->
+	
 	
     <plugin name="cordova-plugin-firebase" source="npm" spec="~2.0.5" />
+-->
     <plugin name="cordova-plugin-file" source="npm" spec="4.1.1" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.5.1" />
 	<plugin name="cordova-plugin-network-information" source="npm" spec="1.2.1" />

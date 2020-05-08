@@ -9,7 +9,7 @@ var app = {
 						databaseURL: "https://notesapp-iriel.firebaseio.com", 
 						storageBucket: "notesapp-iriel.appspot.com",
 						messagingSenderId: "599993888245",
-						appId: "1:599993888245:android:d64fd621ce4149de1304bc" },
+						appId: "notesapp-iriel" }, //"1:599993888245:android:d64fd621ce4149de1304bc" },
 	
 	inicio: function(){
 		this.iniciarFastClick();

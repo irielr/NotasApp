@@ -5,7 +5,7 @@ var app = {
 	model: { "notas": [{ "titulo": "Subiendo a Firebase", "contenido": "Esta es una primera nota de prueba" }] },
     
 	myFireBaseConfig: {	apiKey: "AIzaSyCzIVOqoX7UQ_vnkMQ0tbIGOoPC3mi5BTw", 
-						//authDomain: "notesapp-iriel.firebaseapp.com",
+						authDomain: "notesapp-iriel.firebaseapp.com",
 						databaseURL: "https://notesapp-iriel.firebaseio.com", 
 						storageBucket: "notesapp-iriel.appspot.com",
 						messagingSenderId: "599993888245",

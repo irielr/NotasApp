@@ -48,7 +48,7 @@
 	<plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
 	-->
     <platform name="android">
-	 <resource-file src="google-services.json" target="app/google-services.json" />
+	<resource-file src="google-services.json" target="www/google-services.json" />
         <icon density="ldpi" src="www/img/logo.png" />
         <icon density="mdpi" src="www/img/logo.png" />
         <icon density="hdpi" src="www/img/logo.png" />

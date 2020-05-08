@@ -1,0 +1,86 @@
+body {
+	margin: 0px;
+	padding: 0px;
+    background: lightyellow;
+}
+
+body.error {
+    background: #FFC0CB;
+}
+
+.list-container {
+	padding: 10px;
+}
+
+.notes-list {
+	margin-bottom: 10px;
+}
+
+.note-item {
+	margin-bottom: 2px;
+	background: yellow;
+	border: 1px solid black;
+}
+
+.note-editor {
+	display: none;
+	padding: 10px;
+	background: #EEE8CC;
+}
+
+.titulo {
+	background: #FFF;
+	margin-bottom: 3px;
+	width: 100%;
+}
+
+.titulo-alerta {
+	margin-bottom: 3px;
+	width: 100%;
+	background: #FFC0CB;
+}
+
+.comentario {
+	margin-bottom: 3px;
+	width: 100%;
+	background: #FFF;
+}
+
+.footer {
+	min-height: 20px;
+	background-color: #AAA;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	font-style: italic;
+	font-size: small;
+	text-align: center;
+	color: #ffffff;	
+}
+
+.header {
+	padding: 0px;
+	height: 51px;
+	background-color: #CD853F;
+	color: #ffffff;
+	text-align: center;
+	line-height: 51px;
+	width: 100%;
+}
+
+button {
+	background-color: #FD4140;
+	border-radius: 10px;
+	color: #ffffff;
+	border: none;
+	width: 40%;
+	padding: 10px;
+	font-size: 1em;
+	margin-top: 10px;
+	text-align: center;
+}
+
+button.nube {
+	display: none;
+	background-color: #CD853F;
+}

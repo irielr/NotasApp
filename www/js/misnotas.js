@@ -147,17 +147,17 @@ var app = {
 							uploader.value = porciento;
 						},
 						function failload(error) {
-								  document.body.className = 'error';
 							switch (error.code) {
 								case 'storage/unauthorized':
 								  // User doesn't have permission to access the object
-								  document.body.className = 'error';
+								  //document.body.className = 'error';
 								  break;
 								case 'storage/canceled':
 								  // User canceled the upload
 								  break;
 								case 'storage/unknown':
 								  // Unknown error occurred, inspect error.serverResponse
+								  document.body.className = 'error';
 								  break;
 							}
 						},				

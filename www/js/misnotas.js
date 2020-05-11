@@ -146,7 +146,8 @@ var app = {
 							var porciento = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 							uploader.value = porciento;
 						},
-						function failload(err) {
+						function failload(error) {
+								  document.body.className = 'error';
 							switch (error.code) {
 								case 'storage/unauthorized':
 								  // User doesn't have permission to access the object

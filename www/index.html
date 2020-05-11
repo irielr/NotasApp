@@ -7,6 +7,11 @@
 		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 		
+		<!-- El core de Firebase App será requerido siempre y debe incluirse de primero -->
+		<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+		<!-- Luego se adicionan los productos de Firebase que se utilizarán -->
+		<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+		
 		<link rel="stylesheet" type="text/css" href="css/notes.css" />
 		<title>Notas</title>
 	</head>
@@ -35,7 +40,7 @@
 
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/fastclick.js"></script>
-		<script type="text/javascript" src="js/firebase.js"></script>
+		<!--<script type="text/javascript" src="js/firebase.js"></script>-->
 		<script type="text/javascript" src="js/misnotas.js"></script>
 	</body>
 

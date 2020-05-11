@@ -43,8 +43,10 @@ var app = {
 		document.getElementById('titulo').value = '';
 		document.getElementById('comentario').value = '';
 		document.getElementById('note-editor').style.display = 'block';
+		document.getElementById('uploader-container').style.display = 'none';
 		document.querySelector('#titulo').className = 'titulo';
 		document.getElementById('titulo').focus();
+		uploader.value = 0;
 	},
 	
 	salvarNota: function(){
@@ -62,6 +64,7 @@ var app = {
 	},
 		
 	refrescarLista: function(){
+		document.getElementById('uploader-container').style.display = 'none';
 		var lista = document.getElementById('notes-list');
 		var notas = this.model.notas;
 		var nuevoDiv = '';
@@ -100,7 +103,10 @@ var app = {
 		
 	fileBufferedWriter: function(fileWriter) {
 		//fileWriter.onwriteend = function(e) { console.log('Guardado exitosamente'); }; 
-		fileWriter.onwriteend = function(e) { document.querySelector('#nube').style.display = 'inline'; }; 
+		fileWriter.onwriteend = function(e) { 
+									document.querySelector('#nube').style.display = 'inline';
+									document.getElementById('uploader-container').style.display = 'block'; 
+								}; 
 		fileWriter.onerror = function (e) { document.body.className = 'error'; };
 		fileWriter.write(JSON.stringify(app.model));
 	},
@@ -130,14 +136,38 @@ var app = {
 	
 	////////////////////////////////////////////////////////////////
 	
-	subirNube: function() {
+	subirNube: function() {		
 		if (navigator.connection.type !== Connection.NONE) { 
 			var myStorage = firebase.storage().ref('model.json');
-			myStorage.putString(JSON.stringify(app.model));
+			var task = myStorage.putString(JSON.stringify(app.model));
+			
+			task.on('state_changed', 
+						function progress(snapshot) {
+							var porciento = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+							uploader.value = porciento;
+						},
+						function failload(err) {
+							switch (error.code) {
+								case 'storage/unauthorized':
+								  // User doesn't have permission to access the object
+								  document.body.className = 'error';
+								  break;
+								case 'storage/canceled':
+								  // User canceled the upload
+								  break;
+								case 'storage/unknown':
+								  // Unknown error occurred, inspect error.serverResponse
+								  break;
+							}
+						},				
+						function complete() {					
+						}
+			);
+			
 		} else {
 			document.body.className = 'error';
-		};
-		document.querySelector('#nube').style.display = 'none';
+		};	
+		document.querySelector('#nube').style.display = 'none';	
 	},
 		/*
 		var networkState = navigator.connection.type;

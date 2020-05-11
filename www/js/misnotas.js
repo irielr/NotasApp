@@ -3,27 +3,29 @@ var app = {
 	//model: { "notas": [] }, 
 	model: { "notas": [{ "titulo": "Subiendo a Firebase", "contenido": "Esta es una primera nota de prueba" }] },
     
-	myFireBaseConfig: {	apiKey: "AIzaSyCzIVOqoX7UQ_vnkMQ0tbIGOoPC3mi5BTw", 
+	var myFBconfig = {	apiKey: "AIzaSyCzIVOqoX7UQ_vnkMQ0tbIGOoPC3mi5BTw",
 						authDomain: "notesapp-iriel.firebaseapp.com",
 						databaseURL: "https://notesapp-iriel.firebaseio.com", 
 						storageBucket: "notesapp-iriel.appspot.com",
+						projectId: "notesapp-iriel",	
 						messagingSenderId: "599993888245",
-						appId: "notesapp-iriel" }, //"1:599993888245:android:d64fd621ce4149de1304bc" },
+						appId: "1:599993888245:android:d64fd621ce4149de1304bc"
+					}, 
 	
 	inicio: function(){
-		this.iniciarFastClick();
 		this.iniciarFirebase();
+		this.iniciarFastClick();
 		this.iniciarBotones();
 		this.refrescarLista();
 	},
 	
+	iniciarFirebase: function() {
+		//firebase.initializeApp(app.myFBconfig);
+		firebase.initializeApp(myFBconfig);
+	},
+	
 	iniciarFastClick: function(){
 		FastClick.attach(document.body);
-	},
-
-	iniciarFirebase: function() {
-		firebase.initializeApp(app.myFireBaseConfig);
-		//firebase.initializeApp();
 	},
 		
 	iniciarBotones: function(){

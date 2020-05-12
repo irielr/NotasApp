@@ -147,6 +147,7 @@ var app = {
 							uploader.value = porciento;
 						},
 						function failload(error) {
+							console.log("Error: ", error.code);
 							switch (error.code) {
 								case 'storage/unauthorized':
 									// User doesn't have permission to access the object
@@ -168,6 +169,7 @@ var app = {
 			
 		} else {
 			document.body.className = 'error';
+			console.log("Sin conexión a internet!!!");
 		};	
 		document.querySelector('#nube').style.display = 'none';	
 	},

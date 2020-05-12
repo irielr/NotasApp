@@ -147,7 +147,13 @@ var app = {
 							uploader.value = porciento;
 						},
 						function failload(error) {
-							console.log("Error: ", error.code);
+							navigator.notification.alert(
+										'Error: '+error.code,  // message
+										function () {document.body.className = 'error';},// callback
+										'Upload Fail',            // title
+										'OK'                  // buttonName
+									);
+							/*
 							switch (error.code) {
 								case 'storage/unauthorized':
 									// User doesn't have permission to access the object
@@ -161,7 +167,7 @@ var app = {
 									document.body.className = 'error';
 									console.log("Error: ", error.code);
 									break;
-							}
+							} */
 						},				
 						function complete() {					
 						}

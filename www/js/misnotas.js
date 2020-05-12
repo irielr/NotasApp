@@ -149,16 +149,17 @@ var app = {
 						function failload(error) {
 							switch (error.code) {
 								case 'storage/unauthorized':
-								  // User doesn't have permission to access the object
-								  //document.body.className = 'error';
-								  break;
+									// User doesn't have permission to access the object
+									//document.body.className = 'error';
+									break;
 								case 'storage/canceled':
-								  // User canceled the upload
-								  break;
+									// User canceled the upload
+									break;
 								case 'storage/unknown':
-								  // Unknown error occurred, inspect error.serverResponse
-								  document.body.className = 'error';
-								  break;
+									// Unknown error occurred, inspect error.serverResponse
+									document.body.className = 'error';
+									console.log("Error: ", error.code);
+									break;
 							}
 						},				
 						function complete() {					

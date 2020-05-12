@@ -16,12 +16,19 @@
 		<img align="left" src="img/icoNotas.png">
 			<h2>Aplicación de Notas</h1>
 		</div>
+		
 		<div class="list-container">
-			<div class="notes-list" id="notes-list">
+			<div class="notes-list" id="notes-list"></div>
+			
+			<div class="uploader-container" id="uploader-container">
+				<progress value="0" max="100" id="uploader">0%</progress>
 			</div>
+			
 			<button class="nueva" id="nueva">Nueva Nota</button>			
-			<button class="nube" id="nube">Subir a Firebase</button>
+			<button class="nube" id="nube">Subir Nube</button>
 		</div>
+		
+		
 		
 		<div class="note-editor" id="note-editor">
 			<input class="titulo" type="text" name="titulo" id="titulo" placeholder="Título" required />
@@ -29,10 +36,6 @@
 				<textarea class="comentario" name="comentario" id="comentario" placeholder="Añadir comentario"></textarea>
 			</br>
 			<button class="salvar" id="salvar">Guardar</button>
-		</div>
-		
-		<div class="uploader-container" id="uploader-container">
-			<progress value="0" max="100" id="uploader">0%</progress>
 		</div>
 		
 		<footer class="footer">Accediendo al storage del dispositivo y a Firebase</footer>

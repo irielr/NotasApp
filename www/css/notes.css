@@ -89,13 +89,11 @@ button.nube {
 	display: none;
 	padding: 0px;
 	width: 100%;
-	position: fixed;
-	min-height: 60px;
 }
 
 #uploader {
 	-webkit-appearence: none;
 	appearence: none;
 	width: 100%;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }

@@ -8,7 +8,7 @@
 	<engine name="android" spec="https://github.com/apache/cordova-android.git#6.3.0" />
 
     <preference name="android-minSdkVersion" value="19" />
-	<preference name="android-maxSdkVersion" value="28" />
+	<preference name="android-maxSdkVersion" value="29" />
 	<preference name='phonegap-version' value='cli-8.1.1' />
 	<!--<preference name='phonegap-version' value='cli-7.1.0' />-->
 	<preference name='pgb-builder-version' value='1' />

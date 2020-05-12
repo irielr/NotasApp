@@ -133,7 +133,7 @@ var app = {
 	////////////////////////////////////////////////////////////////
 	
 	subirNube: function() {	
-		if (navigator.connection.type !== Connection.NONE) {  
+		if (navigator.connection.type !== Connection.UNKNOWN) {  
 			document.getElementById('uploader-container').style.display = 'inline'; 
 			document.querySelector('#nueva').style.display = 'none';
 			var myStorage = firebase.storage().ref('model.json');

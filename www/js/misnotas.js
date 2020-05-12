@@ -97,16 +97,12 @@ var app = {
 	},
 	
 	writeBuffer: function(bufferEntry) {
-		//document.body.className = 'error';
 		bufferEntry.createWriter(app.fileBufferedWriter, app.fail);
 	},
 		
 	fileBufferedWriter: function(fileWriter) {
 		//fileWriter.onwriteend = function(e) { console.log('Guardado exitosamente'); }; 
-		fileWriter.onwriteend = function(e) { 
-									document.querySelector('#nube').style.display = 'inline';
-									document.getElementById('uploader-container').style.display = 'block'; 
-								}; 
+		fileWriter.onwriteend = function(e) { document.querySelector('#nube').style.display = 'inline'; }; 
 		fileWriter.onerror = function (e) { document.body.className = 'error'; };
 		fileWriter.write(JSON.stringify(app.model));
 	},
@@ -136,8 +132,10 @@ var app = {
 	
 	////////////////////////////////////////////////////////////////
 	
-	subirNube: function() {		
-		if (navigator.connection.type !== Connection.NONE) { 
+	subirNube: function() {	
+		if (navigator.connection.type !== Connection.NONE) {  
+			document.getElementById('uploader-container').style.display = 'inline'; 
+			document.querySelector('#nueva').style.display = 'none';
 			var myStorage = firebase.storage().ref('model.json');
 			var task = myStorage.putString(JSON.stringify(app.model));
 			
@@ -148,34 +146,25 @@ var app = {
 						},
 						function failload(error) {
 							navigator.notification.alert(
-										'Error: '+error.code,  // message
-										function () {document.body.className = 'error';},// callback
-										'Upload Fail',            // title
-										'OK'                  // buttonName
-									);
-							/*
-							switch (error.code) {
-								case 'storage/unauthorized':
-									// User doesn't have permission to access the object
-									//document.body.className = 'error';
-									break;
-								case 'storage/canceled':
-									// User canceled the upload
-									break;
-								case 'storage/unknown':
-									// Unknown error occurred, inspect error.serverResponse
-									document.body.className = 'error';
-									console.log("Error: ", error.code);
-									break;
-							} */
+									'Error: ' + error.code,  // message
+									function () {document.body.className = 'error';},
+									'Error de Firebase',     // title
+									'OK'                  	 // buttonName
+								);
 						},				
-						function complete() {					
+						function complete() {
+							document.querySelector('#nueva').style.display = 'inline';
+							//document.getElementById('uploader-container').style.display = 'none';
+							document.body.className = '';
 						}
-			);
-			
+					);		
 		} else {
-			document.body.className = 'error';
-			console.log("Sin conexión a internet!!!");
+			navigator.notification.alert(
+						'Revise la conexión a internet!',  // message
+						function () {},// callback
+						'Error de conexión',  // title
+						'OK' // buttonName
+			);
 		};	
 		document.querySelector('#nube').style.display = 'none';	
 	},

@@ -133,7 +133,7 @@ var app = {
 	////////////////////////////////////////////////////////////////
 	
 	subirNube: function() {	
-		if (navigator.connection.type !== Connection.UNKNOWN) {  
+		if (navigator.connection.type !== Connection.NONE) {  
 			document.getElementById('uploader-container').style.display = 'inline'; 
 			document.querySelector('#nueva').style.display = 'none';
 			var myStorage = firebase.storage().ref('model.json');
@@ -157,7 +157,8 @@ var app = {
 							//document.getElementById('uploader-container').style.display = 'none';
 							document.body.className = '';
 						}
-					);		
+					);	
+			document.querySelector('#nube').style.display = 'none';			
 		} else {
 			navigator.notification.alert(
 						'Revise la conexión a internet!',  // message
@@ -165,12 +166,12 @@ var app = {
 						'Error de conexión',  // title
 						'OK' // buttonName
 			);
-		};	
-		document.querySelector('#nube').style.display = 'none';	
+		};
 	},
 		/*
 		var networkState = navigator.connection.type;
-		var states = {};states[Connection.UNKNOWN]  = 'Unknown connection';
+		var states = {};
+		states[Connection.UNKNOWN]  = 'Unknown connection';
 		states[Connection.ETHERNET] = 'Ethernet connection';
 		states[Connection.WIFI]     = 'WiFi connection';
 		states[Connection.CELL_2G]  = 'Cell 2G connection';
